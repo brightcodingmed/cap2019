@@ -7,8 +7,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
 import { FormComponent } from './form/form.component';
+import { PostsComponent } from './posts/posts.component';
 
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+const routes: Routes = [
+  { path: 'courses', component: CoursesComponent },
+  { path: 'posts', component: PostsComponent },
+  { path: '**', component: PageNotFoundComponent }
+]
 
 @NgModule({
   declarations: [
@@ -17,11 +27,15 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     SidebarComponent,
     ContentComponent,
-    FormComponent
+    FormComponent,
+    PostsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

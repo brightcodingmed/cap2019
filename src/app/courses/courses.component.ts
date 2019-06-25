@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
+  test = "my test";
+  titleForMyImage = `image alt ${this.test}`;
+  image = "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://www.filepicker.io/api/file/NoO0UpFmSlqYIujQ6Gta";
   editable = false;
 
   myCourse = {

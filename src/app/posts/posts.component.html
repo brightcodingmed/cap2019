@@ -1,0 +1,66 @@
+
+<div class="row">
+    <div class="col-lg-6">
+      <h1>List of posts</h1>
+    </div>
+    <div class="col-lg-6 text-right">
+      <button (click)="afficheBloc()" class="btn btn-info">
+        <i [ngStyle]="{
+          'fontSize': showForm ? '40px': '20px',
+          'color': showForm ? 'yellow': 'green'
+        }" class="fa" [ngClass]="{
+           'fa-plus': !showForm,
+           'fa-minus': showForm
+        }"></i>
+      </button>
+    </div>
+  </div>
+
+
+<div class="row mb-3" *ngIf="showForm">
+  <div class="col-md-6 mx-auto">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" [(ngModel)]="myPost.title" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="body">Body</label>
+      <textarea [(ngModel)]="myPost.body" id="body" class="form-control" rows="4"></textarea>
+    </div>
+    <button *ngIf="etat == 'add'" (click)="createPost()" class="btn btn-success btn-block"><i class="fa fa-send"></i> Envoyer</button>
+    <button *ngIf="etat == 'update'" (click)="updatePost()" class="btn btn-warning btn-block"><i class="fa fa-refresh"></i> Envoyer</button>
+  </div>
+</div> 
+
+
+<div class="row">
+  <div class="col-md-12">
+   <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr (dblclick)="deletePost(post.id, i)" *ngFor="let post of posts; index as i">
+      <td>{{ post.id }}</td>
+      <td>{{ post.title }}</td>
+      <td>{{ post.body }}</td>
+      <td class="text-right" nowrap>
+        <button (click)="editePost(post)" class="btn btn-warning btn-sm mr-1">
+          <i class="fa fa-pencil"></i>
+        </button>
+
+        <button (click)="deletePost(post.id, i)" class="btn btn-danger btn-sm">
+          <i class="fa fa-times"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table> 
+  </div>
+</div>
+

@@ -1,6 +1,8 @@
 
 <h1>List of courses</h1>
 
+<img [src]="image" [alt]="titleForMyImage">
+
 <input [(ngModel)]="myCourse.title" type="text" class="form-control" placeholder="New course">
 <input (keyup.control.arrowup)="addCourse()" [(ngModel)]="myCourse.price" type="text" class="form-control" placeholder="New course">
 
