@@ -15,13 +15,14 @@ export class CoursesComponent implements OnInit {
   myCourse = {
     title: '',
     price: 0,
-    published: new Date()
+    published: new Date(),
+    vote: {like: 0, dislike: 0}
   };
 
   courses = [
-    { title: 'Angular', price: 11, published: new Date() },
-    { title: 'ReactJS', price: 23, published: new Date() },
-    { title: 'VueJS', price: 21, published: new Date() }
+    { vote: {like: 10, dislike: 1}, title: 'Angular', price: 11.5978, published: new Date() },
+    { vote: {like: 12, dislike: 11}, title: 'ReactJS', price: 23.1955, published: new Date() },
+    { vote: {like: 1, dislike: 14}, title: 'VueJS', price: 21.8323, published: new Date() }
   ];
 
   constructor() { }
@@ -53,8 +54,20 @@ initCourse() {
   this.myCourse = {
     title: '',
     price: 0,
-    published: new Date()
+    published: new Date(),
+    vote: {like: 0, dislike: 0}
   };
+}
+
+
+takeVote(data, course) {
+  console.log(data, course)
+  if(data.type) {
+    course.vote.dislike = data.value
+  }
+  else {
+    course.vote.like = data.value
+  }
 }
 
 }

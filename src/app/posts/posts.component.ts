@@ -36,8 +36,12 @@ export class PostsComponent implements OnInit {
   }
 
 
-  createPost() {
-    this.postService.create(this.myPost).subscribe(response => {
+  createPost(myForm) {
+
+    console.log(myForm);
+
+    if(myForm.valid) {
+      this.postService.create(this.myPost).subscribe(response => {
       this.posts.unshift(response);
 
       this.myPost = {
@@ -45,6 +49,11 @@ export class PostsComponent implements OnInit {
         body: ''
       }
     })
+    }
+    else {
+      alert('form invalid, please it !!')
+    }
+    
   }
 
   deletePost(id, index) {
@@ -92,6 +101,10 @@ export class PostsComponent implements OnInit {
       }
       this.etat = 'add';
     })
+  }
+
+  log(postTitle) {
+    console.log(postTitle);
   }
 
 }

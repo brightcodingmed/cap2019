@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { VoteComponent } from './vote/vote.component';
 
 const routes: Routes = [
   { path: 'courses', component: CoursesComponent },
@@ -29,7 +30,8 @@ const routes: Routes = [
     ContentComponent,
     FormComponent,
     PostsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,
